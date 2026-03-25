@@ -1,13 +1,13 @@
 import tkinter as tk
 from tkinter import ttk
 
-# ---------------- MAIN WINDOW ----------------
+#  MAIN WINDOW 
 root = tk.Tk()
 root.title("Hospital Management System")
 root.geometry("700x550")
 root.configure(bg="#f2f2f2")
 
-# ---------------- STYLE ----------------
+#  STYLE 
 style = ttk.Style()
 style.theme_use("clam")
 
@@ -15,14 +15,14 @@ style.configure("TLabel", font=("Arial", 11))
 style.configure("TButton", font=("Arial", 10), padding=6)
 style.configure("Header.TLabel", font=("Arial", 18, "bold"))
 
-# ---------------- MAIN FRAME ----------------
+#  MAIN FRAME 
 main_frame = ttk.Frame(root, padding=20)
 main_frame.grid(row=0, column=0, sticky="nsew")
 
 root.rowconfigure(0, weight=1)
 root.columnconfigure(0, weight=1)
 
-# ---------------- HEADER ----------------
+#  HEADER 
 header = ttk.Label(
     main_frame,
     text="Hospital Management System",
@@ -30,7 +30,7 @@ header = ttk.Label(
 )
 header.grid(row=0, column=0, columnspan=4, pady=15)
 
-# ---------------- FORM FRAME ----------------
+# FORM FRAME 
 form_frame = ttk.Frame(main_frame, padding=10)
 form_frame.grid(row=1, column=0, columnspan=4, sticky="w")
 
@@ -50,11 +50,11 @@ ttk.Label(form_frame, text="Disease").grid(row=3, column=0, sticky="w", pady=5)
 entry_disease = ttk.Entry(form_frame, width=25)
 entry_disease.grid(row=3, column=1, pady=5, padx=10)
 
-# ---------------- BUTTON FRAME ----------------
+# BUTTON FRAME
 button_frame = ttk.Frame(main_frame, padding=10)
 button_frame.grid(row=2, column=0, columnspan=4)
 
-# ---------------- STATUS LABEL ----------------
+#  STATUS LABEL 
 status = tk.StringVar()
 status.set("Ready")
 
@@ -65,7 +65,7 @@ status_label = ttk.Label(
 )
 status_label.grid(row=4, column=0, columnspan=4, pady=10)
 
-# ---------------- OUTPUT AREA ----------------
+# OUTPUT AREA
 output = tk.Text(
     main_frame,
     height=12,
@@ -75,7 +75,7 @@ output = tk.Text(
 )
 output.grid(row=3, column=0, columnspan=4, pady=10)
 
-# ---------------- FUNCTION LOGIC ----------------
+# FUNCTION LOGIC 
 patients = []   # temporary storage (list of dictionaries)
 
 def add_patient():
@@ -154,7 +154,7 @@ def clear_entries():
     entry_age.delete(0, tk.END)
     entry_disease.delete(0, tk.END)
 
-# ---------------- BUTTONS ----------------
+# BUTTONS
 ttk.Button(button_frame, text="Add Patient", command=add_patient)\
     .grid(row=0, column=0, padx=6)
 
@@ -170,5 +170,5 @@ ttk.Button(button_frame, text="Delete Patient", command=delete_patient)\
 ttk.Button(button_frame, text="Clear", command=clear_entries)\
     .grid(row=0, column=4, padx=6)
 
-# ---------------- RUN APP ----------------
+
 root.mainloop()
